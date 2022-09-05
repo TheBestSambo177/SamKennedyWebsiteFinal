@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<!------------------------------HEAD------------------------------------------------>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+
+<!------------------------------BODY------------------------------------------------>
+<body>
+	<!---------------------------------------------------->	
+	<header>
+		<!--Use Flexbox to create the navigation bar-->
+		<div class="flexbox-container">
+			<!--Image-->
+			<div class="box-1">
+				<img src="MEDIA/global.png" alt="Logo"/>		
+			</div>	
+				
+			<!--Title-->	
+			<div class="box-2">
+				<p class="tagline">ITWD6.408 </p>
+			</div>
+			
+			<!--Navigation Buttons PC-->
+			<div class="box-3">
+				<div class="horizontal-nav">
+					<ul>
+						<li class="active"><a href="index.html">HOME</a></li>
+						<li><a href="form.html">FORMS</a></li>
+						<li><a href="xml_rss.html">XML/JSON</a></li>
+						<li><a href="js-demo.html">JAVASCRIPT</a></li>
+						<li><a href="my-research.html">RESEARCH</a></li>	
+					</ul>
+				</div>			
+			</div>			
+			<div class="box-4">
+				<p onclick="openNav()">≡</p>
+			</div>
+			</div>
+			
+
+		<!--Curtain menu: collapse this menu as default when loading the page-->
+		<nav id="curtain-nav">
+			<!--Add a close button (X) hyperlink on the top left corner-->
+			<a href="javascript:void(0)" class="nav-close-button" onclick="closeNav()">❌</a>
+			<!--Navigation buttons for mobile-->
+			<div class="curtain-nav-content">
+				<ul>
+					<li class="active"><a href="index.html">HOME</a></li>
+					<li><a href="form.html">FORMS</a></li>
+					<li><a href="xml_rss.html">XML/JSON</a></li>
+					<li><a href="js-demo.html">JAVASCRIPT</a></li>
+					<li><a href="my-research.html">RESEARCH</a></li>	
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	<!---------------------------------------------------->	
+	<!--Main content section-->
+	<main>
+		<!--ShowCase Section-->
+		<section class="showcase"> 	
+			<div class="bg-image"></div>
+			<div class="bg-text">
+			<h5>Advanced Internet and web learning portfolio</h5>
+			<h3>I am Sam</h3>
+			<h5>I am Gamer</h5>
+					
+			</div>
+		</section>
+		
+		<!--Bio content section-->
+		<section class="bio"><h2>Bio</h2>
+			<div class="bio-image"></div>
+				<img src="MEDIA/rigby.png" alt="javascript" class="bioIcon"/>
+				<div class="bio-text">
+				<p>
+				I am Sam at 20 years of age. Studying my second year at EIT. 
+				<br>
+				I am taking this paper to extend my knowledge in website development.
+				<br>
+				I am interested in league of legends and  building computers.
+				<br>
+				I enjoy programming and playing video games.
+				</p>
+				
+			</div>
+		</section>
+		
+		<!--Web Technologies content section-->
+		<section class="technologies"><h2>Web Technologies</h2>
+			<h4><span class="special-headword">Top 5 Web Technologies</span></h4>
+				<ol>
+					<li style='color: blue;'>Code Editor: <span class="special-word">Visual Studio Code</span></li>
+					<li style='color: blue;'>File back up: <span class="special-word">Google drive</span></li>
+					<li style='color: blue;'>Computer: <span class="special-word">Gaming PC</span></li>
+					<li style='color: blue;'>Web Design: <span class="special-word">CSS</span></li>
+					<li style='color: blue;'>Web Browser: <span class="special-word">Google Chrome</span></li>
+				</ol>
+		</section>
+		
+		<!--Web Compentencies content section-->
+		<section class="competencies"><h1>My Web Competencies</h2>
+		
+		<!--Mark-Up(HTML)-->
+		<div class="box-5">
+			<div class="flip-box">
+				<div class="flip-box-inner">
+					<div class="flip-box-front">
+						<h2>Mark-Up (HTML5)</h2>
+						<img src="MEDIA/html5.png" alt="html" class="avatar"/>
+					</div>
+				<div class="flip-box-back">
+					<h2>Mark-Up (HTML5)</h2>
+					I would rate myself 8/10 for html as I have a deep understanding of it and can problem solve efficently.
+				</div>
+				</div>
+			</div>
+			
+			<!--Styling(CSS3)-->
+			<div class="flip-box">
+				<div class="flip-box-inner">
+					<div class="flip-box-front">
+						<h2>Styling (CSS3)</h2>
+						<img src="MEDIA/css3.png" alt="css" class="avatar"/>
+					</div>
+				<div class="flip-box-back">
+					<h2>Styling (CSS3)</h2>
+					I would rate myself 7/10 for css as I have a good understanding of it and have a lot of experince with it.
+				</div>
+				</div>
+			</div>
+			
+			<!--Javascript)-->
+			<div class="flip-box">
+				<div class="flip-box-inner">
+					<div class="flip-box-front">
+						<h2>Javascript</h2>
+						<img src="MEDIA/javascript.png" alt="javascript" class="avatar"/>
+					</div>
+				<div class="flip-box-back">
+					<h2>Javascript</h2>
+					I would rate myself 6/10 for javascript as I have an ok understanding of it with limited experince with using it.
+				</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		</section>
+		
+		<!--Statement content section-->
+		<section class="statement"><h2>Statement of Authenticity</h2>
+		
+			<h4>I confirm that:</h4>
+			<ul>
+			
+				<li>This is an original assessment and is entirely my own work.</li>		
+				<li>It contains no material previously published or written by another person or myself except where due
+					acknowledgement is made in the text.</li>
+				<li>No material which to a substantial extent, has been submitted for any other academic course, is included
+					without acknowledgement.</li>
+			</ul>
+		</section>
+	</main>
+	
+	
+	<!---------------------------------------------------->	
+	<!--Footer section-->
+	<footer>
+		<div> @Created by: Sam <br />
+			Contact me at: <a href="mailto:kennes11@eit.ac.nz">kennes11@eit.ac.nz</a>
+		</div>
+	</footer>
+	
+	<!--Embed the js file at the bottom of the html file-->
+	<script type="text/javascript" src="JS/javascript.js">
+	</script>
+
+</body>
+
+</html>
+

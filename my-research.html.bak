@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Research Page</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="CSS/style.css">
+</head>
+
+<body>
+	<header>
+		<!--Use Flexbox to create the navigation bar-->
+		<div class="flexbox-container">
+			<div class="box-1">
+				<img src="MEDIA/global.png" alt="Logo" class="logo"/>		
+			</div>	
+				
+			<div class="box-2">
+				<p class="tagline">ITWD6.408</p>
+			</div>
+			
+			<div class="box-3">
+				<div class="horizontal-nav">
+					<ul>
+						<li><a href="index.html">HOME</a></li>
+						<li><a href="form.html">FORMS</a></li>
+						<li><a href="xml_rss.html">XML/JSON</a></li>
+						<li><a href="js-demo.html">JAVASCRIPT</a></li>
+						<li class="active"><a href="my-research.html">RESEARCH</a></li>	
+					</ul>
+				</div>			
+			</div>			
+			<div class="box-4">
+				<p onclick="openNav()">≡</p>
+			</div>
+
+			
+		</div>
+
+		<!--Curtain menu: collapse this menu as default when loading the page-->
+		<nav id="curtain-nav">
+			<!--Add a close button (X) hyperlink on the top left corner-->
+			<a href="javascript:void(0)" class="nav-close-button" onclick="closeNav()">❌</a>
+			<div class="curtain-nav-content">
+				<ul>
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="form.html">FORMS</a></li>
+					<li><a href="xml_rss.html">XML/JSON</a></li>
+					<li><a href="js-demo.html">JAVASCRIPT</a></li>
+					<li class="active"><a href="my-research.html">RESEARCH</a></li>	
+				</ul>
+			</div>
+		</nav>
+	</header>
+	
+	
+		<!--Research Section-->
+		<section class="research-container">
+			<div class="box-research">
+				<!--Research Flip Box-->
+				<div class="flip-box-c">
+					<div class="flip-box-inner-c">
+						<div class="flip-box-front-c">
+							<h2>Copyright, (CC) Licences & Fair Use</h2>
+							<img src="MEDIA/research-copyright.jpg" class="research-img">
+						</div>
+						<div class="flip-box-back-c">
+							<h2>Copyright, Creative Common (CC) Licenses, Fair Use</h2>
+							<br><p>There are three basic requirements for copyright protection:
+							   that which is to be protected must be a work of authorship;
+							   it must be original; and it must be fixed in a tangible medium of expression.</p>
+							<img src="MEDIA/copyright-img.png" class="copyright-img">
+						</div>
+					</div>
+				</div>
+				
+				<!--Privacy Flip Box-->
+				<div class="flip-box-c">
+					<div class="flip-box-inner-c">
+						<div class="flip-box-front-c">
+							<h2>Privacy & Privacy Policy</h2>
+							<img src="MEDIA/privacy-policy.jpg" class="research-img">
+						</div>
+						<div class="flip-box-back-c">
+							<h2>Privacy & Privacy Policy</h2>
+							<br><p>A privacy policy is a statement or legal document that
+								discloses some or all of the ways a party gathers, uses,
+								discloses, and manages a customer or client's data.</p>
+							<h4>Privacy Statement</h4>
+							<br><p>This website does not collect any information</p>
+						</div>
+					</div>
+				</div>
+				
+				<!--Search Engine Flip Box-->
+				<div class="flip-box-c">
+					<div class="flip-box-inner-c">
+						<div class="flip-box-front-c">
+							<h2>Search Engine Optimization (SEO)</h2>
+							<img src="MEDIA/SEO-image.jpg" class="research-img">
+						</div>
+						<div class="flip-box-back-c">
+							<h2>Search Engine Optimization (SEO)</h2>
+							<p>Words</p>
+						</div>
+					</div>
+				</div>
+				
+				<!--Web Publishing Flip Box-->
+				<div class="flip-box-c">
+					<div class="flip-box-inner-c">
+						<div class="flip-box-front-c">
+							<h2>Web Publishing</h2>
+							<img src="MEDIA/web-hosting.jpg" class="research-img">
+						</div>
+						<div class="flip-box-back-c">
+							<h2>Web Publishing</h2>
+							<p>Words</p>
+						</div>
+					</div>
+				</div>
+				
+				<!--Web Performance & Maintenance Flip Box-->
+				<div class="flip-box-c">
+					<div class="flip-box-inner-c">
+						<div class="flip-box-front-c">
+							<h2>Web Performance & Maintenance</h2>
+							<img src="MEDIA/web-power.jpg" class="research-img">
+						</div>
+						<div class="flip-box-back-c">
+							<h2>Web Performance & Maintenance</h2>
+							<p>Words</p>
+						</div>
+					</div>
+				</div>
+				
+				<!--Web security Flip Box-->
+				<div class="flip-box-c">
+					<div class="flip-box-inner-c">
+						<div class="flip-box-front-c">
+							<h2>Web security</h2>
+							<img src="MEDIA/cyber-security.jpg" class="research-img">
+						</div>
+						<div class="flip-box-back-c">
+							<h2>Web security</h2>
+							<p>Words</p>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</section>
+	
+	
+		
+	<!--Footer section-->
+	<footer>
+		<div> @Created by: Sam <br />
+			Contact me at: <a href="mailto:kennes11@eit.ac.nz">kennes11@eit.ac.nz</a>
+		</div>
+	</footer>
+	
+	<!--Embed JS here-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>	
+	<script src="js/javascript.js"></script>
+</body>
+
+</html>

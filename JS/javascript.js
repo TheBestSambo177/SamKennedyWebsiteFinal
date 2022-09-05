@@ -1,0 +1,331 @@
+//-----------------------------------------------------
+//CURTAIN MENU
+function openNav() {
+	document.getElementById("curtain-nav").style.width = "50%";			
+}
+
+function closeNav() {
+	document.getElementById("curtain-nav").style.width = "0%";			
+}		
+
+
+
+//Data: Cpu list
+let topCPUs = [{id: 0, name: "AMD Ryzen 5 5500", price: 229.00, image_url: "MEDIA/ryzen5_5500.png"},
+			  {id: 1, name: "AMD Ryzen 7 5700X", price: 504.85, image_url: "MEDIA/ryzen7_5700X.png"},
+			  {id: 2, name: "AMD Ryzen 9 5950X", price: 898.99, image_url: "MEDIA/ryzen9_5950X.png"},
+			  {id: 3, name: "Intel Core i5 12400", price: 333.50, image_url: "MEDIA/inteli5_12400.png"},
+			  {id: 4, name: "Intel Core i7 12700K", price: 659.00, image_url: "MEDIA/inteli7_12700K.png"},
+			  {id: 5, name: "Intel Core i9 12900K", price: 1045.35, image_url: "MEDIA/inteli9_12900K.png"},
+			 ];
+			  
+			  
+
+			  
+//Manual Slideshow
+let manualIndex = 0;
+function nextCPU() {
+	//Increase the index by 1
+	//if the index == the length of CPUs, move back to the first movie: index = 0
+	
+	
+	if (manualIndex < topCPUs.length - 1) {
+		manualIndex++;
+	}
+	else {
+		manualIndex = 0;
+	}
+	
+	//Extract the name, price, image url and display on HTML elements
+	//Change title, price and image
+	document.getElementById("manual-slide-name").innerHTML = topCPUs[manualIndex].name;
+	document.getElementById("manual-slide-price").innerHTML = topCPUs[manualIndex].price;
+	document.getElementById("manual-slide-img").src = topCPUs[manualIndex].image_url;
+}
+
+function previousCPU() {
+	
+	if (manualIndex > 0) {
+		manualIndex--;
+	}
+	else {
+		manualIndex = (topCPUs.length - 1);
+	}
+	
+	
+	document.getElementById("manual-slide-name").innerHTML = topCPUs[manualIndex].name;
+	document.getElementById("manual-slide-price").innerHTML = topCPUs[manualIndex].price;
+	document.getElementById("manual-slide-img").src = topCPUs[manualIndex].image_url;
+}
+
+
+//Automatic Slideshow
+let autoIndex = 0;
+function autoSlideShow() {
+	//Change the autoIndex
+	if (autoIndex < topCPUs.length - 1 ) {
+		autoIndex++;
+		
+	} else {
+		autoIndex = 0;
+		
+	}
+
+	//Extract the information
+	document.getElementById("auto-slide-name").innerHTML = topCPUs[autoIndex].name;
+	document.getElementById("auto-slide-price").innerHTML = topCPUs[autoIndex].price;
+	document.getElementById("auto-slide-img").src = topCPUs[autoIndex].image_url;
+	
+	
+	//Wait 2 seconds and display next cpu
+	setTimeout(autoSlideShow, 2000);
+}
+
+//Execute the autoslideshow
+autoSlideShow();
+
+//Dropdown CPU List
+function loadCPUs() {
+	//Find the select Element
+	let CPUSelect = document.getElementById("myCPUList");
+	
+	//Loop through all CPUs in the list and extract information
+	for(var i=0; i < topCPUs.length ; i++) {
+		//Extract the name and add to the select element
+		//Create a new option
+		let optionNode = document.createElement("option");
+		//Assign the option content/value
+		optionNode.value = topCPUs[i].id.toString();
+		optionNode.textContent = topCPUs[i].name.toString();
+		CPUSelect.appendChild(optionNode);	
+	}
+	CPUSelect.selectedIndex = "0";
+}
+
+loadCPUs();
+
+function displayMyCPU() {
+	let selectedCPUIndex = document.getElementById("myCPUList").value;
+	document.getElementById("selectedCPUName").innerHTML = topCPUs[selectedCPUIndex].name;
+	document.getElementById("selectedCPUPrice").innerHTML = topCPUs[selectedCPUIndex].price;
+	document.getElementById("selectedCPU_URL").src = topCPUs[selectedCPUIndex].image_url;
+}
+
+
+//Add new CPU to list
+function AddItemToList() {
+	//Get entered item data
+	let newItemName = document.getElementById("my-cpu-name").value;
+	let newItemPrice = document.getElementById("my-cpu-price").value;
+	let newItemUrl = document.getElementById("my-cpu-image-url").value;
+	let newId = topCPUs.length;
+	//Validate input before adding new item
+	if ((newItemName == "") || (newItemPrice == "") || (newItemUrl == "")) {
+		alert("ERROR. DATA IS INCOMPLETE!");
+	} else {
+		//Add a new item
+		topCPUs.push({id: newId, name: newItemName, price: parseInt(newItemPrice), image_url: newItemUrl});
+		//document.write(allAccounts[1].user + "," + allAccounts[1].pass);
+		alert("NEW ITEM ADDED SUCCESSFULLY!");
+		
+		//Reload the drop-down list
+		//Remove all current options
+		document.getElementById("myCPUList").options.length = 0;
+		//Load updated options
+		loadCPUs();
+		
+		//Empty the inputs
+		document.getElementById("my-cpu-name").value = "";
+		document.getElementById("my-cpu-price").value = "";
+		document.getElementById("my-cpu-image-url").value = "";
+}
+}
+
+
+//List of Comments
+let allComments = [{name: "MattW5399", comment: "Great for playing games at 1080P."},
+	{name: "MichealH223", comment: "I combined the Ryzen 5500 with a existing graphics card, a new motherboard, and some new RAM to give an old PC a total refresh. The end result is both much faster and far quieter and I didn't have to pay for the inbuilt graphics that I was never going to use."},
+	{name: "Guest", comment: "I upgraded from a Ryzen 3 2200g and boy what a difference!"},
+   ];
+	
+
+//----------
+//Load all existing comments and display them on HTML
+function loadComments() {
+//Loop through all comments in the array "allComments"
+for (var i=0; i < allComments.length; i++) {
+	let name = allComments[i].name;
+	let comment = allComments[i].comment;
+	//
+	//Create a new HTML node/element <P> to display this comment
+	let node = document.createElement("P");
+	let textnode = document.createTextNode(name + ": " + comment);
+	node.appendChild(textnode);//Append the content (created TextNode) to the HTML Node (child)
+	let parrent_node = document.getElementById("comment-list");//Get the id of parent node "commentlist"
+	parrent_node.appendChild(node);//Append the above child HTML node to the parent node
+}
+}
+	
+loadComments();
+
+//Add a new comment
+function addComment() {
+	//Get entered value/data by user
+	let enteredCommentName = document.getElementById("comment_name").value;
+	let enteredCommentText = document.getElementById("comment_text").value;
+	//Add this new comment to the array
+	allComments.push({name: enteredCommentName, comment: enteredCommentText});
+	alert("Thank you for your comment!");
+	//Display this new comment on HTML page
+	//Create a new child HTML node/element as "<p>" (paragraph) (as a child node)
+	let node = document.createElement("P");
+	//Create a new TextNode
+	let textnode = document.createTextNode(enteredCommentName + ": " + enteredCommentText);
+	//Append the content (created TextNode) to the HTML Node (child)
+	node.appendChild(textnode);
+	//Get the id of parent node "comment-list"
+	let parrent_node = document.getElementById("comment-list");
+	//Append the above child HTML node to the parent node
+	parrent_node.appendChild(node);
+	//Clear comment box
+	document.getElementById("comment_name").value = "";
+	document.getElementById("comment_text").value = "";
+} 
+
+
+
+//------------------------------------------------------------------------------------------------------
+//VOTE: LIKE / DISLIKE
+//Assume the current Votes are: 20 likes and 5 dislikes
+let currentVotes = {like: 17, dislike: 9};
+//Load the current votes to HTML page
+document.getElementById("likeNumber").innerHTML = currentVotes.like;
+document.getElementById("dislikeNumber").innerHTML = currentVotes.dislike;
+//Variables to track the clicking status
+
+//RULE: Allow to vote only one: UP or DOWN
+let voteStatus = {like: false, dislike: false}; 
+
+
+//Like button clicked
+function like() {
+	//Checks current status of the "like" button
+	if (voteStatus.like == false) {
+		//Increase a like by 1
+		document.getElementById("likeNumber").innerHTML = currentVotes.like + 1;
+		//Change the background Color to green
+		document.getElementById("likeButton").style.backgroundColor = "green";
+		//Change the status of the like button
+		voteStatus.like = true;
+		
+		//Check the dislike status
+		if (voteStatus.dislike == true) {
+			document.getElementById("dislikeNumber").innerHTML = currentVotes.dislike;
+			voteStatus.dislike = false;
+			document.getElementById("dislikeButton").style.backgroundColor = "white";
+		}
+	} else {
+		//Keep the current number of likes
+		document.getElementById("likeNumber").innerHTML = currentVotes.like;
+		//Change backgroundColor to white
+		document.getElementById("likeButton").style.backgroundColor = "white";
+		//Change the status of the like button
+		voteStatus.like = false;
+		
+	}
+}
+
+//Dislike button clicked
+function dislike() {
+	//Checks current status of the "like" button
+	if (voteStatus.dislike == false) {
+		//Increase a dislike by 1
+		document.getElementById("dislikeNumber").innerHTML = currentVotes.dislike + 1;
+		//Change the background Color to green
+		document.getElementById("dislikeButton").style.backgroundColor = "red";
+		//Change the status of the like button
+		voteStatus.dislike = true;
+		
+		//Check the dislike status
+		if (voteStatus.like == true) {
+			document.getElementById("likeNumber").innerHTML = currentVotes.like;
+			voteStatus.like = false;
+			document.getElementById("likeButton").style.backgroundColor = "white";
+		}
+	} else {
+		//Keep the current number of likes
+		document.getElementById("dislikeNumber").innerHTML = currentVotes.dislike;
+		//Change backgroundColor to white
+		document.getElementById("dislikeButton").style.backgroundColor = "white";
+		//Change the status of the like button
+		voteStatus.dislike = false;
+		
+	}
+}
+
+
+//------------------------------------------------------------------------------------------------------
+//RSS Functions
+function loadRSS() {
+		//Use CORS API website as proxy
+		let proxy = 'https://cors-anywhere.herokuapp.com/';
+		
+		//Declare the URL where we fetch RSS file
+		let url = "http://rss.cnn.com/rss/edition.rss";
+		//NASA RSS: https://www.nasa.gov/content/nasa-rss-feeds
+		// NASA education news: https://www.nasa.gov/rss/dyn/educationnews.rss
+		//CNN RSS: https://edition.cnn.com/services/rss/
+		// CNN RSS top stories: http://rss.cnn.com/rss/edition.rss
+		//BBC RSS: http://feeds.bbci.co.uk/news/rss.xml
+		
+		//Create an XMLHttpRequest Object to request XML file (data) through HTTP protocol
+		let xhttp = new XMLHttpRequest();
+		xhttp.open("GET", proxy + url, true);
+		xhttp.send();
+		
+		//Process RSS file when it has been loaded successfully
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+			//Load XML file as "XML" format and parse/process it by calling function parseRSS()
+			let rss = this.responseText;
+			parseRSS(this); }
+		};
+	}
+	
+	
+function parseRSS(rss) {
+		//Load all "items" inside the RSS document, each item is a news
+		let items = rss.responseXML.getElementsByTagName("item");
+		let rssContent = "";//varible "rssContent" is used to store rss content in HTML format
+		
+		//Loop through all items and extract child node content: "title", "link", "description" and "pubdate"
+		for (let i = 0; i< items.length; i++) {
+			let nodes = items[i].children;
+			//Extract "title", "link", "description" and "pubdate" of each "node"
+			let title, pubdate, description, link;
+			for (let j = 0; j < nodes.length; j++) {
+				if (nodes[j].tagName == "title") {
+				title = nodes[j].childNodes[0].nodeValue;
+				} 
+			else if (nodes[j].tagName == "link") {
+				link = nodes[j].childNodes[0].nodeValue;
+				} 
+			else if (nodes[j].tagName == "description") {
+				description = nodes[j].childNodes[0].nodeValue;
+				} 
+			else if (nodes[j].tagName == "pubDate") {
+				pubdate = nodes[j].childNodes[0].nodeValue;
+				}
+			}
+			//Format the extracted information above in HTML format and append it to the "rssContent" variable
+			//each item (news) is wrapped inside a <div>
+			rssContent += `<div style="background-color: gray; margin: 2px;">
+				<h3>${title}</h3>
+				<p style="font-style: italic;">${pubdate}</p>
+				<p>${description}</p>
+				<p><a href="${link}">Read more</a></p>
+			</div>`;
+		}
+		//Display the "rssContent" on the webpage
+		document.getElementById("rssFeed").innerHTML = rssContent;
+	}
