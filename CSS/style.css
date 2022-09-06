@@ -357,7 +357,7 @@ ul {
 /*Showcase blured image*/
 .bg-image {
 	/*Image used*/
-	background-image: url("../media/coding.png");
+	background-image: url("../MEDIA/coding.png");
 	
 	/* Blur effect */
 	filter: blue(8px);
